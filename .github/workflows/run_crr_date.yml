@@ -1,6 +1,6 @@
 name: Run Current Date Script
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch, push]
 
 jobs:
   run-script:
@@ -13,6 +13,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install pytz
 
       - name: Run crr_date.py
         run: python crr_date.py
