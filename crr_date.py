@@ -1,9 +1,11 @@
 from datetime import datetime
+import pytz
 
-def show_current_time():
-    now = datetime.now()
-    current_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"Current date and time: {current_time}")
+# Define the IST timezone
+ist = pytz.timezone('Asia/Kolkata')
 
-if __name__ == "__main__":
-    show_current_time()
+# Get current time in IST
+current_time = datetime.now(ist)
+
+# Print the formatted time
+print("Current Date and Time in IST:", current_time.strftime("%Y-%m-%d %H:%M:%S"))
